@@ -16,11 +16,16 @@ import java.io.IOException;
 public class GoldApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(GoldApplication.class.getResource("goldrush-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(GoldApplication.class.getResource("mainmenu-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 420, 440);
+
+        ViewSwitcher.setScene(scene);
+        ViewSwitcher.switchTo(View.MAINMENU, true);
+
+
+
         stage.setTitle("Gold rush ");
         stage.setScene(scene);
-        ((GoldController)fxmlLoader.getController()).orvatakkar();
         stage.show();
     }
 

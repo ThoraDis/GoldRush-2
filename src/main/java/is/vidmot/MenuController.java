@@ -13,6 +13,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.RadioMenuItem;
+import javafx.scene.control.RadioButton;
 
 import java.util.Optional;
 
@@ -21,7 +22,7 @@ public class MenuController {
     public static final String VILTU_HAETTA = "Viltu hætta? ";
     public static final String UMFORRIT = "Gullgrafari grefur gull og fær stig ";
 
-    private GoldController goldController;  // tenging í aðalcontroller
+    private GoldController goldController=new GoldController();  // tenging í aðalcontroller
 
     /**
      * Setur erfiðleikastig - létt, miðlungs erfitt
@@ -53,6 +54,7 @@ public class MenuController {
         }
     }
 
+
     /**
      * Veitir upplýsingar um forritið
      * @param actionEvent
@@ -69,4 +71,18 @@ public class MenuController {
     }
 
 
+
+    public void onLeikmenn(ActionEvent actionEvent) {
+
+    }
+
+    public void mainMenuErfidleikastig(ActionEvent actionEvent){
+        goldController.setErfidleikastig(Integer.parseInt(((RadioButton) actionEvent.getSource()).getId()));
+
+    }
+
+    public void birtaLeikbord(ActionEvent actionEvent){
+        ViewSwitcher.switchTo(View.LEIKUR, true);
+
+    }
 }

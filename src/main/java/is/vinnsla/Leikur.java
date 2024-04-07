@@ -23,7 +23,7 @@ public class Leikur {
     public static final int MEIRAGULL = 5; // líkur á meira gulli
 
     private final IntegerProperty stigin = new SimpleIntegerProperty(); // stigin
-    private int erfidleikastig = 1; // erfiðleikastig
+    private int erfidleikastig; // erfiðleikastig
 
     private boolean iGangi; // segir til um hvort leikur er í gangi
 

@@ -15,6 +15,7 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.util.Duration;
@@ -39,6 +40,7 @@ public class GoldController {
     Timeline leikjalykkjaTimalina;  // tímalína fyrir leikjalykkju
     private Timeline klukkuTimalina; // tímalína fyrir klukku
     Leikur leikur; // vinnslan
+    int erfidleikastig;
 
 
     /**
@@ -47,6 +49,7 @@ public class GoldController {
      */
     public void initialize() {
         leikur = new Leikur();
+        orvatakkar();
         fxLeikbord.setLeikur(leikur);
         menuStyringController.setController(this);
         fxLeikbord.requestFocus();
@@ -142,6 +145,7 @@ public class GoldController {
     }
 
     public void setErfidleikastig(int eStig) {
+        erfidleikastig=eStig;
         leikur.setErfidleikastig(eStig);
     }
 }
