@@ -146,6 +146,5 @@ public class GoldController {
 
     public void setErfidleikastig(int eStig) {
         erfidleikastig=eStig;
-        leikur.setErfidleikastig(eStig);
     }
 }

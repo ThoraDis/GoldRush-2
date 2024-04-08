@@ -36,11 +36,11 @@
       </RadioButton>
       <RadioButton id="2" layoutX="260.0" layoutY="191.0" mnemonicParsing="false" onAction="#mainMenuErfidleikastig" text="Miðlungs" toggleGroup="$fxErfidleikastig" />
       <RadioButton id="3" layoutX="260.0" layoutY="219.0" mnemonicParsing="false" onAction="#mainMenuErfidleikastig" text="Erfitt" toggleGroup="$fxErfidleikastig" />
-      <RadioButton layoutX="260.0" layoutY="300.0" mnemonicParsing="false" onAction="#onLeikmenn" selected="true" text="1 leikmaður">
+      <RadioButton id="1" layoutX="260.0" layoutY="300.0" mnemonicParsing="false" onAction="#onLeikmenn" selected="true" text="1 leikmaður">
          <toggleGroup>
             <ToggleGroup fx:id="Leikmenn" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="260.0" layoutY="326.0" mnemonicParsing="false" text="2 leikmenn" toggleGroup="$Leikmenn" />
+      <RadioButton id="2" layoutX="260.0" layoutY="326.0" mnemonicParsing="false" text="2 leikmenn" onAction="#onLeikmenn" toggleGroup="$Leikmenn" />
    </children>
 </AnchorPane>

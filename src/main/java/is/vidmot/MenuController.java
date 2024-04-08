@@ -10,6 +10,7 @@ package is.vidmot;
  *
  *****************************************************************************/
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.RadioMenuItem;
@@ -22,7 +23,12 @@ public class MenuController {
     public static final String VILTU_HAETTA = "Viltu hætta? ";
     public static final String UMFORRIT = "Gullgrafari grefur gull og fær stig ";
 
-    private GoldController goldController=new GoldController();  // tenging í aðalcontroller
+    private GoldController goldController = new GoldController();  // tenging í aðalcontroller
+
+    public int erfidleikastig=1;
+
+    public int fjoldiLeikmanna=1;
+
 
     /**
      * Setur erfiðleikastig - létt, miðlungs erfitt
@@ -73,16 +79,30 @@ public class MenuController {
 
 
     public void onLeikmenn(ActionEvent actionEvent) {
+        RadioButton radioButton = (RadioButton) actionEvent.getSource();
+        String radioButtonId = radioButton.getId();
+        fjoldiLeikmanna= Integer.parseInt(radioButtonId);
+        System.out.println(fjoldiLeikmanna);
 
     }
 
     public void mainMenuErfidleikastig(ActionEvent actionEvent){
-        goldController.setErfidleikastig(Integer.parseInt(((RadioButton) actionEvent.getSource()).getId()));
-
+        RadioButton radioButton = (RadioButton) actionEvent.getSource();
+        String radioButtonId = radioButton.getId();
+        erfidleikastig=Integer.parseInt(radioButtonId);
+        goldController.setErfidleikastig(erfidleikastig);
     }
 
     public void birtaLeikbord(ActionEvent actionEvent){
-        ViewSwitcher.switchTo(View.LEIKUR, true);
+
+        if (fjoldiLeikmanna==1){
+            ViewSwitcher.switchTo(View.LEIKUREINN, true);
+        }
+        if (fjoldiLeikmanna==2){
+            ViewSwitcher.switchTo(View.LEIKURTVEIR, true);
+        }
+
+        goldController.setErfidleikastig(erfidleikastig);
 
     }
 }

@@ -5,7 +5,8 @@ package is.vidmot;
  */
 public enum View {
     MAINMENU("mainmenu-view.fxml"),
-    LEIKUR("goldrush-view.fxml");
+    LEIKUREINN("goldrush-view.fxml"),
+    LEIKURTVEIR("goldrushtveir-view.fxml");
 
 
     private final String fileName;

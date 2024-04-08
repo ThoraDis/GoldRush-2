@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import is.vidmot.Leikbord?>
+<VBox prefHeight="470.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="is.vidmot.GoldController">
+    <children>
+        <fx:include source="menu-view.fxml" fx:id="menuStyring" />
+        <Leikbord focusTraversable="true" fx:id="fxLeikbord" prefHeight="219.0" prefWidth="640.0" style="-fx-background-color: green;" />
+        <HBox prefHeight="74.0" prefWidth="640.0">
+            <children>
+                <Label alignment="CENTER" prefHeight="111.0" prefWidth="602.0" text="Stig" />
+                <Label fx:id="fxStig" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="63.0" prefWidth="611.0" />
+                <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="111.0" prefWidth="602.0" text="Tíminn eftir" />
+                <Label fx:id="fxTimiEftir" alignment="CENTER" layoutX="220.0" layoutY="10.0" prefHeight="63.0" prefWidth="611.0" />
+            </children>
+        </HBox>
+    </children>
+</VBox>
