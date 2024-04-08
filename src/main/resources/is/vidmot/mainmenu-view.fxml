@@ -5,12 +5,11 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<?import java.net.URL?>
-<AnchorPane prefHeight="500.0" prefWidth="700.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="is.vidmot.MenuController">
+<AnchorPane prefHeight="500.0" prefWidth="700.0" stylesheets="@styles.css" styleClass="pane" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="is.vidmot.MenuController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#edce1c" focusTraversable="true" height="130.0" layoutX="245.0" layoutY="125.0" smooth="false" stroke="#edce1c" strokeType="INSIDE" width="200.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#edce1c" focusTraversable="true" height="130.0" layoutX="245.0" layoutY="265.0" smooth="false" stroke="#edce1c" strokeType="INSIDE" width="200.0" />
-      <Text layoutX="245.0" layoutY="50.0" text="Goldrush" textAlignment="CENTER" wrappingWidth="200">
+      <Rectangle fill="wheat" arcHeight="5.0" arcWidth="5.0"  focusTraversable="true" height="130.0" layoutX="245.0" layoutY="125.0" smooth="false" stroke="#edce1c" strokeType="INSIDE" width="200.0" />
+      <Rectangle fill="wheat" arcHeight="5.0" arcWidth="5.0"  focusTraversable="true" height="130.0" layoutX="245.0" layoutY="265.0" smooth="false" stroke="#edce1c" strokeType="INSIDE" width="200.0" />
+      <Text styleClass="text" layoutX="245.0" layoutY="50.0" text="Goldrush" textAlignment="CENTER" wrappingWidth="200">
          <font>
             <Font name="Arial" size="42.0" />
          </font></Text>
@@ -22,11 +21,11 @@
          <font>
             <Font name="Serif Bold Italic" size="24.0" />
          </font></Text>
-      <Button layoutX="280.0" layoutY="70.0" mnemonicParsing="false" onAction="#birtaLeikbord" prefHeight="50.0" prefWidth="120.0" text="Hefja leik" textAlignment="CENTER">
+      <Button layoutX="245.0" layoutY="70.0" mnemonicParsing="false" onAction="#birtaLeikbord" prefHeight="50.0" prefWidth="200.0" text="Hefja leik" textAlignment="CENTER">
          <font>
             <Font name="Serif Regular" size="18.0" />
          </font></Button>
-      <Button layoutX="280.0" layoutY="400.0" mnemonicParsing="false" onAction="#onHaetta" prefHeight="50.0" prefWidth="120.0" text="Hætta" textAlignment="CENTER">
+      <Button layoutX="245.0" layoutY="400.0" mnemonicParsing="false" onAction="#onHaetta" prefHeight="50.0" prefWidth="200.0" text="Hætta" textAlignment="CENTER">
          <font>
             <Font size="18.0" />
          </font></Button>
@@ -44,7 +43,4 @@
       </RadioButton>
       <RadioButton layoutX="260.0" layoutY="326.0" mnemonicParsing="false" text="2 leikmenn" toggleGroup="$Leikmenn" />
    </children>
-   <stylesheets>
-      <URL value="styles.css" />
-   </stylesheets>
 </AnchorPane>
