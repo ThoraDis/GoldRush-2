@@ -13,14 +13,12 @@ package is.vidmot;
 import is.vinnsla.Geyma;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.RadioMenuItem;
+import javafx.scene.control.RadioButton;
 
-import java.util.Optional;
 
 public class MenuController {
     // fastar
-    public static final String VILTU_HAETTA = "Viltu hætta? ";
     public static final String UMFORRIT = "Gullgrafari grefur gull og fær stig ";
 
     private GoldController goldController = new GoldController();  // tenging í aðalcontroller
@@ -94,14 +92,17 @@ public class MenuController {
         this.goldController = goldController;
     }
 
+
     public void setController(GoldControllerTveir goldController) {
         this.goldControllerTveir = goldController;
     }
+
 
      /**
      * Stillir gamemode
      * @param actionEvent
      */
+
 
     public void onLeikmenn(ActionEvent actionEvent) {
         leikmenn = Integer.parseInt(((RadioButton) actionEvent.getSource()).getId());
@@ -114,10 +115,11 @@ public class MenuController {
      */
 
 
-    public void mainMenuErfidleikastig(ActionEvent actionEvent) {
-        erfidleikastig = Integer.parseInt(((RadioButton) actionEvent.getSource()).getId());
+    public void mainMenuErfidleikastig(ActionEvent actionEvent){
+        erfidleikastig=Integer.parseInt(((RadioButton) actionEvent.getSource()).getId());
         Geyma.setErfidleikastig(erfidleikastig);
     }
+
 
       /**
      * Birtir tilsvarandi leikborð eftir völdnu gamemode
