@@ -19,8 +19,10 @@ import java.util.Random;
 public class Leikur {
 
     private static final Random rand = new Random(); // slembigjafi
-    private static final int[] timinn = {0, 30, 20, 10}; // tíminn tengdur við erfiðleikastig
-    public static final int MEIRAGULL = 5; // líkur á meira gulli
+    private static final int[] timinn = {0, 60, 45, 30}; // tíminn tengdur við erfiðleikastig
+    public static final int[] MEIRAGULL = {0, 20, 15, 10}; // líkur á meira gulli
+    public static final int[] MEIRIGILDRUR = {0, 5, 10, 15}; // líkur á meiri gildrum
+    public static final int[] gildruStig = {0, 1, 2, 3};
 
     private final IntegerProperty stigin = new SimpleIntegerProperty(); // stigin
     private int erfidleikastig = 1; // erfiðleikastig
@@ -32,6 +34,13 @@ public class Leikur {
      */
     public void haekkaStigin() {
         stigin.setValue(stigin.getValue() + 1);
+    }
+
+    /**
+     * Lækkar stigin um einn
+     */
+    public void laekkaStigin() {
+        stigin.setValue(stigin.getValue() - gildruStig[erfidleikastig]);
     }
 
     /**
@@ -56,7 +65,16 @@ public class Leikur {
      * @return
      */
     public boolean erMeiraGull() {
-        return rand.nextInt(100) < MEIRAGULL;
+        return rand.nextInt(100) < MEIRAGULL[erfidleikastig];
+    }
+
+    /**
+     * Segir til um hvort eigi að búa til meiri gildrur
+     *
+     * @return
+     */
+    public boolean erMeiriGildrur() {
+        return rand.nextInt(100) < MEIRIGILDRUR[erfidleikastig];
     }
 
 
