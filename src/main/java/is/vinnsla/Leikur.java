@@ -1,5 +1,6 @@
 package is.vinnsla;
 
+import is.vidmot.MenuController;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
@@ -25,7 +26,7 @@ public class Leikur {
     public static final int[] gildruStig = {0, 1, 2, 3};
 
     private final IntegerProperty stigin = new SimpleIntegerProperty(); // stigin
-    private int erfidleikastig = 1; // erfiðleikastig
+    private int erfidleikastig; // erfiðleikastig
 
     private boolean iGangi; // segir til um hvort leikur er í gangi
 

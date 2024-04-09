@@ -9,10 +9,14 @@ package is.vidmot;
  *  Getur hafið nýjan leik, sett erfiðleikastig og spurt um forritið
  *
  *****************************************************************************/
+import is.vinnsla.Geyma;
+import is.vinnsla.Leikur;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.RadioMenuItem;
+import javafx.scene.control.RadioButton;
 
 import java.util.Optional;
 
@@ -21,7 +25,14 @@ public class MenuController {
     public static final String VILTU_HAETTA = "Viltu hætta? ";
     public static final String UMFORRIT = "Gullgrafari grefur gull og fær stig ";
 
-    private GoldController goldController;  // tenging í aðalcontroller
+    private GoldController goldController = new GoldController();  // tenging í aðalcontroller
+
+    private  GoldControllerTveir goldControllerTveir = new GoldControllerTveir();
+
+    public int leikmenn=1;
+
+    public int erfidleikastig=1;
+
 
     /**
      * Setur erfiðleikastig - létt, miðlungs erfitt
@@ -30,6 +41,8 @@ public class MenuController {
     public void onErfidleikastig(ActionEvent actionEvent) {
         goldController.setErfidleikastig
                 (Integer.parseInt(((RadioMenuItem) actionEvent.getSource()).getId()));
+        goldControllerTveir.setErfidleikastig
+                (Integer.parseInt(((RadioMenuItem) actionEvent.getSource()).getId()));
     }
 
     /**
@@ -37,8 +50,13 @@ public class MenuController {
      * @param actionEvent
      */
     public void onNyrLeikur(ActionEvent actionEvent) {
-        goldController.hefjaLeik();
-        goldController.raesaKlukku();
+
+        if (Geyma.getLeikmenn()==2){
+            goldControllerTveir.hefjaLeik();
+            goldControllerTveir.raesaKlukku();
+        } else{
+            goldController.hefjaLeik();
+            goldController.raesaKlukku();}
     }
 
     /**
@@ -52,6 +70,7 @@ public class MenuController {
             System.exit(0);
         }
     }
+
 
     /**
      * Veitir upplýsingar um forritið
@@ -68,5 +87,28 @@ public class MenuController {
         this.goldController = goldController;
     }
 
+    public void setController(GoldControllerTveir goldController) {
+        this.goldControllerTveir = goldController;
+    }
+    public void onLeikmenn(ActionEvent actionEvent) {
+        leikmenn= Integer.parseInt(((RadioButton) actionEvent.getSource()).getId());
+        Geyma.setLeikmenn(leikmenn);
+    }
 
+    public void mainMenuErfidleikastig(ActionEvent actionEvent){
+        erfidleikastig=Integer.parseInt(((RadioButton) actionEvent.getSource()).getId());
+        Geyma.setErfidleikastig(erfidleikastig);
+    }
+
+    public void birtaLeikbord(ActionEvent actionEvent){
+
+        if (leikmenn==1){
+            ViewSwitcher.switchTo(View.LEIKUREINN, true);
+        }
+        if (leikmenn==2){
+            ViewSwitcher.switchTo(View.LEIKURTVEIR, true);
+        }
+
+
+    }
 }
