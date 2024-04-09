@@ -1,98 +1,47 @@
 package is.vinnsla;
 
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-
-import java.util.Random;
-
 /******************************************************************************
  *  Nafn    : Ebba Þóra Hvannberg
  *  T-póstur: ebba@hi.is
  *
- *  Lýsing  : Vinnsluhlutur fyrir leik. Heldur aðallega utan um stigin
- *
- *  Leikur geymir stigin og erfiðleikastig leiksins
- *
- *  Sér um að hækka stigin og framleiða meira gull
+ *  Lýsing: Vinnsluklasi fyrir klukku. Geymir tímann, lætur tímann líða
  *
  *****************************************************************************/
-public class Leikur {
 
-    private static final Random rand = new Random(); // slembigjafi
-    private static final int[] timinn = {0, 60, 45, 30}; // tíminn tengdur við erfiðleikastig
-    public static final int[] MEIRAGULL = {0, 20, 15, 10}; // líkur á meira gulli
-    public static final int[] MEIRIGILDRUR = {0, 5, 10, 15}; // líkur á meiri gildrum
-    public static final int[] gildruStig = {0, 1, 2, 3};
+import javafx.beans.property.SimpleIntegerProperty;
 
-    private final IntegerProperty stigin = new SimpleIntegerProperty(); // stigin
-    private int erfidleikastig = 1; // erfiðleikastig
-
-    private boolean iGangi; // segir til um hvort leikur er í gangi
+public class Klukka {
+    private SimpleIntegerProperty timi = new SimpleIntegerProperty();
+    
 
     /**
-     * Hækkar stigin um einn
-     */
-    public void haekkaStigin() {
-        stigin.setValue(stigin.getValue() + 1);
-    }
-
-    /**
-     * Lækkar stigin um einn
-     */
-    public void laekkaStigin() {
-        stigin.setValue(stigin.getValue() - gildruStig[erfidleikastig]);
-    }
-
-    /**
-     * Setur nýjan leik. Stigin verða 0
-     */
-    public void nyrLeikur() {
-        stigin.setValue(0);
-    }
-
-    /**
-     * Skilar tímanum sem er tengdur við erfiðleikastig leiksins
+     * Smiður. Tekur inn upphafstíma
      *
-     * @return
+     * @param upphafsTimi
      */
-    public int getTiminn() {
-        return timinn[erfidleikastig];
+    public Klukka(int upphafsTimi) {
+        setTimi(upphafsTimi);
     }
 
     /**
-     * Segir til um hvort eigi að búa til meira gull
-     *
-     * @return
+     * Tíminn líður
      */
-    public boolean erMeiraGull() {
-        return rand.nextInt(100) < MEIRAGULL[erfidleikastig];
+    public void tic() {
+        setTimi(getTimi() - 1);
     }
 
-    /**
-     * Segir til um hvort eigi að búa til meiri gildrur
-     *
-     * @return
-     */
-    public boolean erMeiriGildrur() {
-        return rand.nextInt(100) < MEIRIGILDRUR[erfidleikastig];
+    // Set og get aðferðir
+    public void setTimi(int timi) {
+        this.timi.set(timi);
     }
 
-
-    // set og get aðferðir
-    public void setErfidleikastig(int eStig) {
-        erfidleikastig = eStig;
+    public int getTimi() {
+        return timi.get();
     }
 
-    public IntegerProperty stiginProperty() {
-        return stigin;
+    public SimpleIntegerProperty timiProperty() {
+        return timi;
     }
 
-    public boolean isIGangi() {
-        return iGangi;
-    }
-
-    public void setiGangi(boolean iGangi) {
-        this.iGangi = iGangi;
-    }
 
 }
