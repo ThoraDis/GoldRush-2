@@ -9,6 +9,7 @@ package is.vidmot;
  *  Getur hafið nýjan leik, sett erfiðleikastig og spurt um forritið
  *
  *****************************************************************************/
+
 import is.vinnsla.Geyma;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
@@ -22,15 +23,16 @@ public class MenuController {
 
     private GoldController goldController = new GoldController();  // tenging í aðalcontroller
 
-    private  GoldControllerTveir goldControllerTveir = new GoldControllerTveir();
+    private GoldControllerTveir goldControllerTveir = new GoldControllerTveir();
 
-    public int leikmenn=1;
+    public int leikmenn = 1;
 
-    public int erfidleikastig=1;
+    public int erfidleikastig = 1;
 
 
     /**
      * Setur erfiðleikastig - létt, miðlungs erfitt
+     *
      * @param actionEvent
      */
     public void onErfidleikastig(ActionEvent actionEvent) {
@@ -42,29 +44,41 @@ public class MenuController {
 
     /**
      * Hefur nýjan leik
+     *
      * @param actionEvent
      */
     public void onNyrLeikur(ActionEvent actionEvent) {
 
-        if (Geyma.getLeikmenn()==2){
+        if (Geyma.getLeikmenn() == 2) {
             goldControllerTveir.hefjaLeik();
             goldControllerTveir.raesaKlukku();
-        } else{
+        } else {
             goldController.hefjaLeik();
-            goldController.raesaKlukku();}
+            goldController.raesaKlukku();
+        }
     }
 
     /**
      * Hættir í forriti
+     *
      * @param actionEvent
      */
     public void onHaetta(ActionEvent actionEvent) {
-      ViewSwitcher.switchTo(View.MAINMENU,true);
+        Alert alert = new Alert(Alert.AlertType.WARNING, VILTU_HAETTA);
+        Optional<ButtonType> optional = alert.showAndWait();
+        if (optional.isPresent() && optional.get().equals(ButtonType.OK)) {
+            System.exit(0);
+        }
+    }
+
+    public void onTilBaka(ActionEvent actionEvent) {
+        ViewSwitcher.switchTo(View.MAINMENU, true);
     }
 
 
     /**
      * Veitir upplýsingar um forritið
+     *
      * @param actionEvent
      */
     public void onUmForritid(ActionEvent actionEvent) {
@@ -83,12 +97,15 @@ public class MenuController {
         this.goldControllerTveir = goldController;
     }
 
-    /**
+
+     /**
      * Stillir gamemode
      * @param actionEvent
      */
+
+
     public void onLeikmenn(ActionEvent actionEvent) {
-        leikmenn= Integer.parseInt(((RadioButton) actionEvent.getSource()).getId());
+        leikmenn = Integer.parseInt(((RadioButton) actionEvent.getSource()).getId());
         Geyma.setLeikmenn(leikmenn);
     }
 
@@ -97,22 +114,24 @@ public class MenuController {
      * @param actionEvent
      */
 
+
     public void mainMenuErfidleikastig(ActionEvent actionEvent){
         erfidleikastig=Integer.parseInt(((RadioButton) actionEvent.getSource()).getId());
         Geyma.setErfidleikastig(erfidleikastig);
     }
 
-    /**
+
+      /**
      * Birtir tilsvarandi leikborð eftir völdnu gamemode
      * @param actionEvent
      */
 
-    public void birtaLeikbord(ActionEvent actionEvent){
+    public void birtaLeikbord(ActionEvent actionEvent) {
 
-        if (leikmenn==1){
+        if (leikmenn == 1) {
             ViewSwitcher.switchTo(View.LEIKUREINN, true);
         }
-        if (leikmenn==2){
+        if (leikmenn == 2) {
             ViewSwitcher.switchTo(View.LEIKURTVEIR, true);
         }
 
