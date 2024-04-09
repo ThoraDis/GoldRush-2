@@ -13,7 +13,6 @@ package is.vidmot;
 import is.vinnsla.Geyma;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.RadioMenuItem;
 
@@ -99,15 +98,31 @@ public class MenuController {
         this.goldControllerTveir = goldController;
     }
 
+     /**
+     * Stillir gamemode
+     * @param actionEvent
+     */
+
     public void onLeikmenn(ActionEvent actionEvent) {
         leikmenn = Integer.parseInt(((RadioButton) actionEvent.getSource()).getId());
         Geyma.setLeikmenn(leikmenn);
     }
 
+    /**
+     * Stillir erfiðleikastig fyrir leik
+     * @param actionEvent
+     */
+
+
     public void mainMenuErfidleikastig(ActionEvent actionEvent) {
         erfidleikastig = Integer.parseInt(((RadioButton) actionEvent.getSource()).getId());
         Geyma.setErfidleikastig(erfidleikastig);
     }
+
+      /**
+     * Birtir tilsvarandi leikborð eftir völdnu gamemode
+     * @param actionEvent
+     */
 
     public void birtaLeikbord(ActionEvent actionEvent) {
 
