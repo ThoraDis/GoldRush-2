@@ -7,7 +7,7 @@
 <VBox prefHeight="470.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="is.vidmot.GoldControllerTveir">
     <children>
         <fx:include fx:id="menuStyring" source="menu-view.fxml" />
-        <Leikbord fx:id="fxLeikbord" focusTraversable="true" prefHeight="410.0" prefWidth="640.0" style="-fx-background-color: green;" />
+        <Leikbord fx:id="fxLeikbord" focusTraversable="true" prefHeight="410.0" prefWidth="640.0" style="-fx-background-color: brown;" />
         <HBox prefHeight="74.0" prefWidth="640.0">
             <children>
                 <Label alignment="CENTER" prefHeight="111.0" prefWidth="602.0" text="Stig" />

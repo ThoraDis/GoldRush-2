@@ -40,7 +40,7 @@
   <children>
     <fx:include fx:id="menuStyring" source="menu-view.fxml" />
  <!-- verður að vera í focus til að filterinn virki -->
-      <Leikbord fx:id="fxLeikbord" focusTraversable="true" prefHeight="409.0" prefWidth="640.0" style="-fx-background-color: green;" />
+      <Leikbord fx:id="fxLeikbord" focusTraversable="true" prefHeight="409.0" prefWidth="640.0" style="-fx-background-color: brown;" />
       <HBox prefHeight="74.0" prefWidth="640.0">
          <children>
             <Label alignment="CENTER" prefHeight="111.0" prefWidth="602.0" text="Stig" />

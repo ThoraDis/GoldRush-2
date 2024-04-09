@@ -64,11 +64,7 @@ public class MenuController {
      * @param actionEvent
      */
     public void onHaetta(ActionEvent actionEvent) {
-        Alert alert = new Alert(Alert.AlertType.WARNING, VILTU_HAETTA);
-        Optional<ButtonType> optional = alert.showAndWait();
-        if (optional.isPresent() && optional.get().equals(ButtonType.OK)) {
-            System.exit(0);
-        }
+      ViewSwitcher.switchTo(View.MAINMENU,true);
     }
 
 
