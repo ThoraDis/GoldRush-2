@@ -8,6 +8,7 @@ package is.vidmot;
  *  stýrir örvatkökkum
  *****************************************************************************/
 
+import is.vinnsla.Geyma;
 import is.vinnsla.Klukka;
 import is.vinnsla.Leikur;
 import javafx.animation.KeyFrame;
@@ -49,6 +50,8 @@ public class GoldController {
      */
     public void initialize() {
         leikur=new Leikur();
+        erfidleikastig= Geyma.getErfidleikastig();
+        leikur.setErfidleikastig(erfidleikastig);
         orvatakkar();
         fxLeikbord.setLeikur(leikur);
         menuStyringController.setController(this);
@@ -146,6 +149,7 @@ public class GoldController {
 
     public void setErfidleikastig(int eStig) {
         erfidleikastig=eStig;
-        leikur.setErfidleikastig(erfidleikastig);
+        leikur.setErfidleikastig(eStig);
+
     }
 }

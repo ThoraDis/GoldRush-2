@@ -8,6 +8,7 @@ package is.vidmot;
  *  stýrir örvatkökkum
  *****************************************************************************/
 
+import is.vinnsla.Geyma;
 import is.vinnsla.Klukka;
 import is.vinnsla.Leikur;
 import javafx.animation.KeyFrame;
@@ -27,7 +28,7 @@ public class GoldControllerTveir {
 
     // viðótshlutir
     @FXML
-    public LeikbordTveir fxLeikbordTveir; // leikborðið
+    public Leikbord fxLeikbord; // leikborðið
     public Label fxTimiEftir;   // tíminn eftir
     public Label fxStig;        // stigin
     @FXML
@@ -49,10 +50,12 @@ public class GoldControllerTveir {
      */
     public void initialize() {
         leikur = new Leikur();
+        erfidleikastig= Geyma.getErfidleikastig();
+        leikur.setErfidleikastig(erfidleikastig);
         orvatakkar();
-        fxLeikbordTveir.setLeikur(leikur);
+        fxLeikbord.setLeikur(leikur);
         menuStyringController.setController(this);
-        fxLeikbordTveir.requestFocus();
+        fxLeikbord.requestFocus();
         fxStig.textProperty().bind(leikur.stiginProperty().asString()); // binda stigin við viðmótið
         fxTimiEftir.textProperty().bind(klukka.timiProperty().asString());
     }
@@ -68,7 +71,7 @@ public class GoldControllerTveir {
         map.put(KeyCode.LEFT, Stefna.VINSTRI);
 
         // þarf ekki að vera bara á senuna - getur verið á einstaka hlut en sá verður að vera í focus
-        fxLeikbordTveir.addEventFilter(KeyEvent.ANY,
+        fxLeikbord.addEventFilter(KeyEvent.ANY,
                 this::stefna);
     }
 
@@ -81,8 +84,8 @@ public class GoldControllerTveir {
     private void stefna(KeyEvent event) {      // lambda fall - event er parameter
         // flettum upp horninu fyrir KeyCode í map
         if (leikur.isIGangi() && map.get(event.getCode()) != null) {
-            fxLeikbordTveir.setStefna(map.get(event.getCode()).getGradur());
-            fxLeikbordTveir.afram();
+            fxLeikbord.setStefna(map.get(event.getCode()).getGradur());
+            fxLeikbord.afram();
         }
     }
 
@@ -128,7 +131,7 @@ public class GoldControllerTveir {
      */
     public void hefjaLeik() {
         leikur.setiGangi(true); // leikur í gangi
-        fxLeikbordTveir.nyrLeikur(); // nýr leikur hafinn
+        fxLeikbord.nyrLeikur(); // nýr leikur hafinn
         leikjalykkjaTimalina = setjaUppLeikjalykkjuTimalinu();
         leikjalykkjaTimalina.play();
     }
@@ -139,7 +142,7 @@ public class GoldControllerTveir {
     private Timeline setjaUppLeikjalykkjuTimalinu() {
         KeyFrame k = new KeyFrame(Duration.millis(INTERVAL),
                 e -> {
-                    fxLeikbordTveir.meiraGull(); // á að setja meira gull ?
+                    fxLeikbord.geraGull();
                 });
         Timeline t = new Timeline(k);    // búin til tímalína fyrir leikinn
         t.setCycleCount(Timeline.INDEFINITE);   // leikurinn leikur endalaust
@@ -148,5 +151,6 @@ public class GoldControllerTveir {
 
     public void setErfidleikastig(int eStig) {
         erfidleikastig=eStig;
+        leikur.setErfidleikastig(erfidleikastig);
     }
 }

@@ -32,7 +32,7 @@ public class GrafariTveir extends Rectangle {
      * ferðu hringinn að vinstri jaðrinum. Sama með efri og neðri jaðarinn
      */
     public void afram() {
-        Leikbord parent = (Leikbord) this.getParent();
+        LeikbordTveir parent = (LeikbordTveir) this.getParent();
         setX((int) (getX() < 0 || getX() > parent.getWidth() ? 0 : getX() + Math.cos(Math.toRadians(getStefna())) * hradi) % (parent.getWidth() - getWidth()));
         setY((int) (getY() < getHeight() || getY() > parent.getHeight() ? getHeight() : getY() - Math.sin(Math.toRadians(getStefna())) * hradi) % (parent.getHeight() - getHeight()));
     }

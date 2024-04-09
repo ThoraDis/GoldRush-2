@@ -78,6 +78,11 @@ public class Leikbord extends Pane {
         }
     }
 
+
+    public void geraGull(){
+        framleidaGull();
+    }
+
     /**
      * Hefja nýjan leik. Allt gullið tekið af borðinu
      */

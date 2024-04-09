@@ -9,6 +9,7 @@ package is.vidmot;
  *  Getur hafið nýjan leik, sett erfiðleikastig og spurt um forritið
  *
  *****************************************************************************/
+import is.vinnsla.Geyma;
 import is.vinnsla.Leikur;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -30,6 +31,8 @@ public class MenuController {
 
     public int leikmenn=1;
 
+    public int erfidleikastig=1;
+
 
     /**
      * Setur erfiðleikastig - létt, miðlungs erfitt
@@ -37,6 +40,8 @@ public class MenuController {
      */
     public void onErfidleikastig(ActionEvent actionEvent) {
         goldController.setErfidleikastig
+                (Integer.parseInt(((RadioMenuItem) actionEvent.getSource()).getId()));
+        goldControllerTveir.setErfidleikastig
                 (Integer.parseInt(((RadioMenuItem) actionEvent.getSource()).getId()));
     }
 
@@ -46,12 +51,12 @@ public class MenuController {
      */
     public void onNyrLeikur(ActionEvent actionEvent) {
 
-        if (leikmenn==1){
-            goldController.hefjaLeik();
-            goldController.raesaKlukku();
-        } if (leikmenn==2){
+        if (Geyma.getLeikmenn()==2){
             goldControllerTveir.hefjaLeik();
-            goldControllerTveir.raesaKlukku();}
+            goldControllerTveir.raesaKlukku();
+        } else{
+            goldController.hefjaLeik();
+            goldController.raesaKlukku();}
     }
 
     /**
@@ -86,14 +91,13 @@ public class MenuController {
         this.goldControllerTveir = goldController;
     }
     public void onLeikmenn(ActionEvent actionEvent) {
-        RadioButton radioButton = (RadioButton) actionEvent.getSource();
-        String radioButtonId = radioButton.getId();
-        leikmenn= Integer.parseInt(radioButtonId);
+        leikmenn= Integer.parseInt(((RadioButton) actionEvent.getSource()).getId());
+        Geyma.setLeikmenn(leikmenn);
     }
 
     public void mainMenuErfidleikastig(ActionEvent actionEvent){
-        goldController.setErfidleikastig
-                (Integer.parseInt(((RadioButton) actionEvent.getSource()).getId()));
+        erfidleikastig=Integer.parseInt(((RadioButton) actionEvent.getSource()).getId());
+        Geyma.setErfidleikastig(erfidleikastig);
     }
 
     public void birtaLeikbord(ActionEvent actionEvent){
