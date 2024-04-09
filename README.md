@@ -1,5 +1,5 @@
 # GoldRush
-## Um foririð
+## Um forritið
 Þetta er skemmtilegur leikur sem heitir GoldRush. Leikurinn snýst um að safna eins mestu gulli á ákveðnum tíma og forðast gildrur á meðan. Hægt er að velja um létt, miðlungs eða erfitt og svo gamemode Venjulegt eða Overload.
 ## Byggja forritið með Maven
 Þetta Maven til að byggja verkefnið með pakka JavaFX Controls og JavaFX FXML útgáfu 19.0.2.1 og JUnit 5 útgáfu 5.10.0.
