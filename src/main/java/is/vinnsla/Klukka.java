@@ -12,6 +12,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 
 public class Klukka {
     private SimpleIntegerProperty timi = new SimpleIntegerProperty();
+    
 
     /**
      * Smiður. Tekur inn upphafstíma

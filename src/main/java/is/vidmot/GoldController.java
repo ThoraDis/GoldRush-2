@@ -27,7 +27,8 @@ public class GoldController {
     // fasti
     private static final double INTERVAL = 150; // hve oft gull er framleitt
 
-    // viðótshlutir
+
+    // viðmótshlutir
     @FXML
     public Leikbord fxLeikbord; // leikborðið
     public Label fxTimiEftir;   // tíminn eftir
@@ -58,6 +59,11 @@ public class GoldController {
         fxLeikbord.requestFocus();
         fxStig.textProperty().bind(leikur.stiginProperty().asString()); // binda stigin við viðmótið
         fxTimiEftir.textProperty().bind(klukka.timiProperty().asString());
+        fxTimiEftir.textProperty().addListener((ov, t, t1) -> {
+            if (fxTimiEftir.getText().equals("10")) {
+                fxLeikbord.playSE(7);
+            }
+        });
     }
 
     /**
@@ -122,6 +128,7 @@ public class GoldController {
         Timeline t = (Timeline) actionEvent.getSource();
         t.stop();           // stoppar klukkuna
         leikjalykkjaTimalina.stop(); // stoppar gullframleiðsluna
+        fxLeikbord.playSE(6);
     }
 
     /**
@@ -132,6 +139,7 @@ public class GoldController {
         fxLeikbord.nyrLeikur(); // nýr leikur hafinn
         leikjalykkjaTimalina = setjaUppLeikjalykkjuTimalinu();
         leikjalykkjaTimalina.play();
+        fxLeikbord.playSE(5);
     }
 
     /**
@@ -141,6 +149,7 @@ public class GoldController {
         KeyFrame k = new KeyFrame(Duration.millis(INTERVAL),
                 e -> {
                     fxLeikbord.meiraGull(); // á að setja meira gull ?
+                    fxLeikbord.meiriGildrur(); // á að setja meiri gildrur ?
                 });
         Timeline t = new Timeline(k);    // búin til tímalína fyrir leikinn
         t.setCycleCount(Timeline.INDEFINITE);   // leikurinn leikur endalaust
