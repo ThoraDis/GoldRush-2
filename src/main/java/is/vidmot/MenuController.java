@@ -9,6 +9,7 @@ package is.vidmot;
  *  Getur hafið nýjan leik, sett erfiðleikastig og spurt um forritið
  *
  *****************************************************************************/
+import is.vinnsla.Leikur;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -25,9 +26,9 @@ public class MenuController {
 
     private GoldController goldController = new GoldController();  // tenging í aðalcontroller
 
-    public int erfidleikastig=1;
+    private  GoldControllerTveir goldControllerTveir = new GoldControllerTveir();
 
-    public int fjoldiLeikmanna=1;
+    public int leikmenn=1;
 
 
     /**
@@ -44,8 +45,13 @@ public class MenuController {
      * @param actionEvent
      */
     public void onNyrLeikur(ActionEvent actionEvent) {
-        goldController.hefjaLeik();
-        goldController.raesaKlukku();
+
+        if (leikmenn==1){
+            goldController.hefjaLeik();
+            goldController.raesaKlukku();
+        } if (leikmenn==2){
+            goldControllerTveir.hefjaLeik();
+            goldControllerTveir.raesaKlukku();}
     }
 
     /**
@@ -76,33 +82,29 @@ public class MenuController {
         this.goldController = goldController;
     }
 
-
-
+    public void setController(GoldControllerTveir goldController) {
+        this.goldControllerTveir = goldController;
+    }
     public void onLeikmenn(ActionEvent actionEvent) {
         RadioButton radioButton = (RadioButton) actionEvent.getSource();
         String radioButtonId = radioButton.getId();
-        fjoldiLeikmanna= Integer.parseInt(radioButtonId);
-        System.out.println(fjoldiLeikmanna);
-
+        leikmenn= Integer.parseInt(radioButtonId);
     }
 
     public void mainMenuErfidleikastig(ActionEvent actionEvent){
-        RadioButton radioButton = (RadioButton) actionEvent.getSource();
-        String radioButtonId = radioButton.getId();
-        erfidleikastig=Integer.parseInt(radioButtonId);
-        goldController.setErfidleikastig(erfidleikastig);
+        goldController.setErfidleikastig
+                (Integer.parseInt(((RadioButton) actionEvent.getSource()).getId()));
     }
 
     public void birtaLeikbord(ActionEvent actionEvent){
 
-        if (fjoldiLeikmanna==1){
+        if (leikmenn==1){
             ViewSwitcher.switchTo(View.LEIKUREINN, true);
         }
-        if (fjoldiLeikmanna==2){
+        if (leikmenn==2){
             ViewSwitcher.switchTo(View.LEIKURTVEIR, true);
         }
 
-        goldController.setErfidleikastig(erfidleikastig);
 
     }
 }

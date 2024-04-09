@@ -1,5 +1,6 @@
 package is.vinnsla;
 
+import is.vidmot.MenuController;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 

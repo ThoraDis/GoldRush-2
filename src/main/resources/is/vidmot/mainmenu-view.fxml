@@ -29,7 +29,7 @@
          <font>
             <Font size="18.0" />
          </font></Button>
-      <RadioButton id="1" layoutX="260.0" layoutY="165.0" mnemonicParsing="false" onAction="#mainMenuErfidleikastig" selected="true" text="Létt">
+      <RadioButton id="1" layoutX="260.0" layoutY="165.0" mnemonicParsing="false" onAction="#mainMenuErfidleikastig" selected="true" text="Létt" toggleGroup="$fxErfidleikastig">
          <toggleGroup>
             <ToggleGroup fx:id="fxErfidleikastig" />
          </toggleGroup>
@@ -38,9 +38,9 @@
       <RadioButton id="3" layoutX="260.0" layoutY="219.0" mnemonicParsing="false" onAction="#mainMenuErfidleikastig" text="Erfitt" toggleGroup="$fxErfidleikastig" />
       <RadioButton id="1" layoutX="260.0" layoutY="300.0" mnemonicParsing="false" onAction="#onLeikmenn" selected="true" text="1 leikmaður">
          <toggleGroup>
-            <ToggleGroup fx:id="Leikmenn" />
+            <ToggleGroup fx:id="fxleikmenn" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton id="2" layoutX="260.0" layoutY="326.0" mnemonicParsing="false" text="2 leikmenn" onAction="#onLeikmenn" toggleGroup="$Leikmenn" />
+      <RadioButton id="2" layoutX="260.0" layoutY="326.0" mnemonicParsing="false" text="2 leikmenn" onAction="#onLeikmenn" toggleGroup="$fxleikmenn" />
    </children>
 </AnchorPane>

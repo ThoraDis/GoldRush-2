@@ -15,20 +15,19 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.util.Duration;
 
 import java.util.HashMap;
 
-public class GoldController {
+public class GoldControllerTveir {
     // fasti
     private static final double INTERVAL = 150; // hve oft gull er framleitt
 
     // viðótshlutir
     @FXML
-    public Leikbord fxLeikbord; // leikborðið
+    public LeikbordTveir fxLeikbordTveir; // leikborðið
     public Label fxTimiEftir;   // tíminn eftir
     public Label fxStig;        // stigin
     @FXML
@@ -43,16 +42,17 @@ public class GoldController {
     int erfidleikastig;
 
 
+
     /**
      * Frumstillir controller. Gerir nýjan leik, tengir hann við leikborð, tengir
      * við menucontroller. Setur upp bindingu við stigin og tímann sem er eftir.
      */
     public void initialize() {
-        leikur=new Leikur();
+        leikur = new Leikur();
         orvatakkar();
-        fxLeikbord.setLeikur(leikur);
+        fxLeikbordTveir.setLeikur(leikur);
         menuStyringController.setController(this);
-        fxLeikbord.requestFocus();
+        fxLeikbordTveir.requestFocus();
         fxStig.textProperty().bind(leikur.stiginProperty().asString()); // binda stigin við viðmótið
         fxTimiEftir.textProperty().bind(klukka.timiProperty().asString());
     }
@@ -66,10 +66,12 @@ public class GoldController {
         map.put(KeyCode.DOWN, Stefna.NIDUR);
         map.put(KeyCode.RIGHT, Stefna.HAEGRI);
         map.put(KeyCode.LEFT, Stefna.VINSTRI);
+
         // þarf ekki að vera bara á senuna - getur verið á einstaka hlut en sá verður að vera í focus
-        fxLeikbord.addEventFilter(KeyEvent.ANY,
+        fxLeikbordTveir.addEventFilter(KeyEvent.ANY,
                 this::stefna);
     }
+
 
     /**
      * Færir grafara áfram í stefnu örvatakkans ef leikur í gangi
@@ -79,8 +81,8 @@ public class GoldController {
     private void stefna(KeyEvent event) {      // lambda fall - event er parameter
         // flettum upp horninu fyrir KeyCode í map
         if (leikur.isIGangi() && map.get(event.getCode()) != null) {
-            fxLeikbord.setStefna(map.get(event.getCode()).getGradur());
-            fxLeikbord.afram();
+            fxLeikbordTveir.setStefna(map.get(event.getCode()).getGradur());
+            fxLeikbordTveir.afram();
         }
     }
 
@@ -126,7 +128,7 @@ public class GoldController {
      */
     public void hefjaLeik() {
         leikur.setiGangi(true); // leikur í gangi
-        fxLeikbord.nyrLeikur(); // nýr leikur hafinn
+        fxLeikbordTveir.nyrLeikur(); // nýr leikur hafinn
         leikjalykkjaTimalina = setjaUppLeikjalykkjuTimalinu();
         leikjalykkjaTimalina.play();
     }
@@ -137,7 +139,7 @@ public class GoldController {
     private Timeline setjaUppLeikjalykkjuTimalinu() {
         KeyFrame k = new KeyFrame(Duration.millis(INTERVAL),
                 e -> {
-                    fxLeikbord.meiraGull(); // á að setja meira gull ?
+                    fxLeikbordTveir.meiraGull(); // á að setja meira gull ?
                 });
         Timeline t = new Timeline(k);    // búin til tímalína fyrir leikinn
         t.setCycleCount(Timeline.INDEFINITE);   // leikurinn leikur endalaust
@@ -146,6 +148,5 @@ public class GoldController {
 
     public void setErfidleikastig(int eStig) {
         erfidleikastig=eStig;
-        leikur.setErfidleikastig(erfidleikastig);
     }
 }
