@@ -5,11 +5,11 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="500.0" prefWidth="700.0" stylesheets="@styles.css" styleClass="pane" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="is.vidmot.MenuController">
+<AnchorPane prefHeight="500.0" prefWidth="700.0" styleClass="pane" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="is.vidmot.MenuController">
    <children>
-      <Rectangle fill="wheat" arcHeight="5.0" arcWidth="5.0"  focusTraversable="true" height="130.0" layoutX="245.0" layoutY="125.0" smooth="false" stroke="#edce1c" strokeType="INSIDE" width="200.0" />
-      <Rectangle fill="wheat" arcHeight="5.0" arcWidth="5.0"  focusTraversable="true" height="130.0" layoutX="245.0" layoutY="265.0" smooth="false" stroke="#edce1c" strokeType="INSIDE" width="200.0" />
-      <Text styleClass="text" layoutX="245.0" layoutY="50.0" text="Goldrush" textAlignment="CENTER" wrappingWidth="200">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="wheat" focusTraversable="true" height="130.0" layoutX="245.0" layoutY="125.0" smooth="false" stroke="#edce1c" strokeType="INSIDE" width="200.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="wheat" focusTraversable="true" height="130.0" layoutX="245.0" layoutY="265.0" smooth="false" stroke="#edce1c" strokeType="INSIDE" width="200.0" />
+      <Text layoutX="245.0" layoutY="50.0" styleClass="text" text="Goldrush" textAlignment="CENTER" wrappingWidth="200">
          <font>
             <Font name="Arial" size="42.0" />
          </font></Text>
@@ -17,7 +17,7 @@
          <font>
             <Font name="Serif Bold Italic" size="24.0" />
          </font></Text>
-      <Text layoutX="260.0" layoutY="290.0" text="Leikmenn">
+      <Text layoutX="260.0" layoutY="290.0" text="Gamemode">
          <font>
             <Font name="Serif Bold Italic" size="24.0" />
          </font></Text>
@@ -29,18 +29,18 @@
          <font>
             <Font size="18.0" />
          </font></Button>
-      <RadioButton id="1" layoutX="260.0" layoutY="165.0" mnemonicParsing="false" onAction="#mainMenuErfidleikastig" selected="true" text="Létt" toggleGroup="$fxErfidleikastig">
+      <RadioButton id="1" layoutX="260.0" layoutY="165.0" mnemonicParsing="false" onAction="#mainMenuErfidleikastig" text="Létt" toggleGroup="$fxErfidleikastig">
          <toggleGroup>
             <ToggleGroup fx:id="fxErfidleikastig" />
          </toggleGroup>
       </RadioButton>
       <RadioButton id="2" layoutX="260.0" layoutY="191.0" mnemonicParsing="false" onAction="#mainMenuErfidleikastig" text="Miðlungs" toggleGroup="$fxErfidleikastig" />
       <RadioButton id="3" layoutX="260.0" layoutY="219.0" mnemonicParsing="false" onAction="#mainMenuErfidleikastig" text="Erfitt" toggleGroup="$fxErfidleikastig" />
-      <RadioButton id="1" layoutX="260.0" layoutY="300.0" mnemonicParsing="false" onAction="#onLeikmenn" selected="true" text="1 leikmaður">
+      <RadioButton id="1" layoutX="260.0" layoutY="300.0" mnemonicParsing="false" onAction="#onLeikmenn" text="Venjulegt">
          <toggleGroup>
             <ToggleGroup fx:id="fxleikmenn" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton id="2" layoutX="260.0" layoutY="326.0" mnemonicParsing="false" text="2 leikmenn" onAction="#onLeikmenn" toggleGroup="$fxleikmenn" />
+      <RadioButton id="2" layoutX="260.0" layoutY="326.0" mnemonicParsing="false" onAction="#onLeikmenn" text="Overload" toggleGroup="$fxleikmenn" />
    </children>
 </AnchorPane>

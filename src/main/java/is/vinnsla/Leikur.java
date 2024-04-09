@@ -28,7 +28,11 @@ public class Leikur {
     private final IntegerProperty stigin = new SimpleIntegerProperty(); // stigin
     private int erfidleikastig; // erfiðleikastig
 
+    private int leikmenn = Geyma.getLeikmenn();
+
     private boolean iGangi; // segir til um hvort leikur er í gangi
+
+
 
     /**
      * Hækkar stigin um einn
@@ -75,7 +79,10 @@ public class Leikur {
      * @return
      */
     public boolean erMeiriGildrur() {
-        return rand.nextInt(100) < MEIRIGILDRUR[erfidleikastig];
+        if (leikmenn==2){
+            return rand.nextInt(100) < 75;
+        }else {
+            return rand.nextInt(100) < MEIRIGILDRUR[erfidleikastig];}
     }
 
 

@@ -17,7 +17,7 @@ public class GoldApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(GoldApplication.class.getResource("mainmenu-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 420, 440);
+        Scene scene = new Scene(fxmlLoader.load(), 700, 500);
 
         ViewSwitcher.setScene(scene);
         ViewSwitcher.switchTo(View.MAINMENU, true);

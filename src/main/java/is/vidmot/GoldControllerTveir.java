@@ -58,6 +58,11 @@ public class GoldControllerTveir {
         fxLeikbord.requestFocus();
         fxStig.textProperty().bind(leikur.stiginProperty().asString()); // binda stigin við viðmótið
         fxTimiEftir.textProperty().bind(klukka.timiProperty().asString());
+        fxTimiEftir.textProperty().addListener((ov, t, t1) -> {
+            if (fxTimiEftir.getText().equals("10")) {
+                fxLeikbord.playSE(7);
+            }
+        });
     }
 
     /**
@@ -124,6 +129,7 @@ public class GoldControllerTveir {
         Timeline t = (Timeline) actionEvent.getSource();
         t.stop();           // stoppar klukkuna
         leikjalykkjaTimalina.stop(); // stoppar gullframleiðsluna
+        fxLeikbord.playSE(6);
     }
 
     /**
@@ -134,6 +140,7 @@ public class GoldControllerTveir {
         fxLeikbord.nyrLeikur(); // nýr leikur hafinn
         leikjalykkjaTimalina = setjaUppLeikjalykkjuTimalinu();
         leikjalykkjaTimalina.play();
+        fxLeikbord.playSE(5);
     }
 
     /**
@@ -143,6 +150,7 @@ public class GoldControllerTveir {
         KeyFrame k = new KeyFrame(Duration.millis(INTERVAL),
                 e -> {
                     fxLeikbord.geraGull();
+                    fxLeikbord.meiriGildrur();
                 });
         Timeline t = new Timeline(k);    // búin til tímalína fyrir leikinn
         t.setCycleCount(Timeline.INDEFINITE);   // leikurinn leikur endalaust

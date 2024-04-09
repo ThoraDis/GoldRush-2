@@ -15,15 +15,7 @@
             <items>
                 <MenuItem onAction="#onNyrLeikur" mnemonicParsing="false" text="Nýr leikur" />
                 <SeparatorMenuItem mnemonicParsing="false" />
-                <MenuItem onAction="#onHaetta" mnemonicParsing="false" text="Hætta" />
-            </items>
-        </Menu>
-
-        <Menu mnemonicParsing="false" text="Breyta">
-            <items>
-                <RadioMenuItem selected="true" id="1" onAction="#onErfidleikastig" toggleGroup="$fxErfidleikastig" mnemonicParsing="false" text="Léttur" />
-                <RadioMenuItem id="2" onAction="#onErfidleikastig" toggleGroup="$fxErfidleikastig" mnemonicParsing="false" text="Miðlungs" />
-                <RadioMenuItem id="3" onAction="#onErfidleikastig" toggleGroup="$fxErfidleikastig" mnemonicParsing="false" text="Erfiður" />
+                <MenuItem onAction="#onHaetta" mnemonicParsing="false" text="Til baka" />
             </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Hjálp">
