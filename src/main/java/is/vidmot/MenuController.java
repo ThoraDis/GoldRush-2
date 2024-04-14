@@ -15,11 +15,13 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.RadioMenuItem;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.ButtonType;
 
 
 public class MenuController {
     // fastar
     public static final String UMFORRIT = "Gullgrafari grefur gull og fær stig ";
+    public static final String VILTU_HAETTA = "Viltu hætta?";
 
     private GoldController goldController = new GoldController();  // tenging í aðalcontroller
 
@@ -64,11 +66,9 @@ public class MenuController {
      * @param actionEvent
      */
     public void onHaetta(ActionEvent actionEvent) {
-        Alert alert = new Alert(Alert.AlertType.WARNING, VILTU_HAETTA);
-        Optional<ButtonType> optional = alert.showAndWait();
-        if (optional.isPresent() && optional.get().equals(ButtonType.OK)) {
+
             System.exit(0);
-        }
+
     }
 
     public void onTilBaka(ActionEvent actionEvent) {

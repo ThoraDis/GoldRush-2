@@ -134,6 +134,7 @@ public class GoldController {
      * Hefja leik með því að setja upp leikjalykkju fyrir meira gull
      */
     public void hefjaLeik() {
+        fxLeikbord.clearGull();
         leikur.setiGangi(true); // leikur í gangi
         fxLeikbord.nyrLeikur(); // nýr leikur hafinn
         leikjalykkjaTimalina = setjaUppLeikjalykkjuTimalinu();
