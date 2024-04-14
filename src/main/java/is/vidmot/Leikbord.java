@@ -157,4 +157,18 @@ public class Leikbord extends Pane {
     public void setStefna(int gradur) {
         fxGrafari.setStefna(gradur);
     }
+
+    public void clearGull() {
+
+            for (Gull g : gullid) {
+                getChildren().remove(g);
+            }
+            gullid.clear();
+
+        for (Gildra g : gildran) {
+            getChildren().remove(g);
+        }
+        gildran.clear();
+
+    }
 }
