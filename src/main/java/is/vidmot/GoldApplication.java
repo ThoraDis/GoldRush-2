@@ -23,7 +23,6 @@ public class GoldApplication extends Application {
         ViewSwitcher.setScene(scene);
         ViewSwitcher.switchTo(View.MAINMENU, true);
 
-
         stage.setTitle("Gold rush ");
         stage.setScene(scene);
         stage.show();

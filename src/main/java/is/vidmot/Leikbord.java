@@ -158,7 +158,6 @@ public class Leikbord extends Pane {
     }
 
     public void clearGull() {
-
         for (Gull g : gullid) {
             getChildren().remove(g);
         }

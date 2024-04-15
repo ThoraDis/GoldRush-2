@@ -1,5 +1,6 @@
 package is.vinnsla;
 
+import is.vidmot.MenuController;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
@@ -19,15 +20,19 @@ import java.util.Random;
 public class Leikur {
 
     private static final Random rand = new Random(); // slembigjafi
-    private static final int[] timinn = {0, 60, 45, 30}; // tíminn tengdur við erfiðleikastig
+    private static final int[] timinn = {0, 35, 25, 10}; // tíminn tengdur við erfiðleikastig
     public static final int[] MEIRAGULL = {0, 20, 15, 10}; // líkur á meira gulli
     public static final int[] MEIRIGILDRUR = {0, 5, 10, 15}; // líkur á meiri gildrum
     public static final int[] gildruStig = {0, 1, 2, 3};
 
     private final IntegerProperty stigin = new SimpleIntegerProperty(); // stigin
-    private int erfidleikastig = 1; // erfiðleikastig
+    private int erfidleikastig; // erfiðleikastig
+
+    private int leikmenn = Geyma.getLeikmenn();
 
     private boolean iGangi; // segir til um hvort leikur er í gangi
+
+
 
     /**
      * Hækkar stigin um einn
@@ -74,7 +79,10 @@ public class Leikur {
      * @return
      */
     public boolean erMeiriGildrur() {
-        return rand.nextInt(100) < MEIRIGILDRUR[erfidleikastig];
+        if (leikmenn==2){
+            return rand.nextInt(100) < 75;
+        }else {
+            return rand.nextInt(100) < MEIRIGILDRUR[erfidleikastig];}
     }
 
 

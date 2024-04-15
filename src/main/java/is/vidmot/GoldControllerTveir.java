@@ -23,17 +23,14 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.util.Duration;
 
-
 import java.util.HashMap;
 import java.util.Optional;
 
-
-public class GoldController {
+public class GoldControllerTveir {
     // fasti
     private static final double INTERVAL = 150; // hve oft gull er framleitt
 
-
-    // viðmótshlutir
+    // viðótshlutir
     @FXML
     public Leikbord fxLeikbord; // leikborðið
     public Label fxTimiEftir;   // tíminn eftir
@@ -50,15 +47,16 @@ public class GoldController {
     int erfidleikastig;
 
 
+
     /**
      * Frumstillir controller. Gerir nýjan leik, tengir hann við leikborð, tengir
      * við menucontroller. Setur upp bindingu við stigin og tímann sem er eftir.
      */
     public void initialize() {
         leikur = new Leikur();
-        orvatakkar();
-        erfidleikastig = Geyma.getErfidleikastig();
+        erfidleikastig= Geyma.getErfidleikastig();
         leikur.setErfidleikastig(erfidleikastig);
+        orvatakkar();
         fxLeikbord.setLeikur(leikur);
         menuStyringController.setController(this);
         fxLeikbord.requestFocus();
@@ -82,10 +80,12 @@ public class GoldController {
         map.put(KeyCode.DOWN, Stefna.NIDUR);
         map.put(KeyCode.RIGHT, Stefna.HAEGRI);
         map.put(KeyCode.LEFT, Stefna.VINSTRI);
+
         // þarf ekki að vera bara á senuna - getur verið á einstaka hlut en sá verður að vera í focus
         fxLeikbord.addEventFilter(KeyEvent.ANY,
                 this::stefna);
     }
+
 
     /**
      * Færir grafara áfram í stefnu örvatakkans ef leikur í gangi
@@ -157,8 +157,8 @@ public class GoldController {
     private Timeline setjaUppLeikjalykkjuTimalinu() {
         KeyFrame k = new KeyFrame(Duration.millis(INTERVAL),
                 e -> {
-                    fxLeikbord.meiraGull(); // á að setja meira gull ?
-                    fxLeikbord.meiriGildrur(); // á að setja meiri gildrur ?
+                    fxLeikbord.geraGull();
+                    fxLeikbord.meiriGildrur();
                 });
         Timeline t = new Timeline(k);    // búin til tímalína fyrir leikinn
         t.setCycleCount(Timeline.INDEFINITE);   // leikurinn leikur endalaust
@@ -166,27 +166,26 @@ public class GoldController {
     }
 
     public void setErfidleikastig(int eStig) {
-        erfidleikastig = eStig;
-        leikur.setErfidleikastig(eStig);
+        erfidleikastig=eStig;
+        leikur.setErfidleikastig(erfidleikastig);
     }
 
-
-    public void leikLokid() {
+    public void leikLokid(){
         Alert a = new Alert(Alert.AlertType.CONFIRMATION);
         a.setTitle("Leikur búinn");
         a.setContentText("Viltu spila aftur eða fara til baka í main menu?");
 
         ButtonType spila = new ButtonType("Spila aftur");
         ButtonType til_baka = new ButtonType("Til baka");
-        a.getButtonTypes().setAll(spila, til_baka);
+        a.getButtonTypes().setAll(spila,til_baka);
 
         Optional<ButtonType> svar = a.showAndWait();
 
-        if (svar.isPresent() && ((Optional<?>) svar).get() == spila) {
+        if (svar.isPresent() && ((Optional<?>) svar).get()==spila){
             hefjaLeik();
             raesaKlukku();
-        } else if (svar.isPresent() && svar.get() == til_baka) {
-            ViewSwitcher.switchTo(View.MAINMENU, true);
+        } else if(svar.isPresent() && svar.get()==til_baka){
+            ViewSwitcher.switchTo(View.MAINMENU,true);
         }
 
 

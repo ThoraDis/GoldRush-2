@@ -1,0 +1,11 @@
+.button{
+   -fx-background-color: wheat;
+}
+
+.pane{
+    -fx-background-color: tan;
+}
+
+.rec{
+    -fx-color:wheat;
+}

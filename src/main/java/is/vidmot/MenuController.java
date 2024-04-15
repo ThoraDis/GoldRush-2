@@ -15,11 +15,15 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.RadioMenuItem;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ButtonType;
 
 
 public class MenuController {
     // fastar
+
     public static final String UMFORRIT = "Örvatakkar til að hreyfa sig. Leikurinn snýst um að safna eins miklu gulli og hægt er áður en tíminn lýkur. Ekki stíga í gildrurnar því þá missir þú stig.";
+
     public static final String VILTU_HAETTA = "Viltu hætta?";
 
     private GoldController goldController = new GoldController();  // tenging í aðalcontroller
@@ -97,9 +101,9 @@ public class MenuController {
     }
 
 
-    /**
+
+     /**
      * Stillir gamemode
-     *
      * @param actionEvent
      */
 
@@ -111,20 +115,20 @@ public class MenuController {
 
     /**
      * Stillir erfiðleikastig fyrir leik
-     *
      * @param actionEvent
      */
 
 
     public void mainMenuErfidleikastig(ActionEvent actionEvent) {
         erfidleikastig = Integer.parseInt(((RadioButton) actionEvent.getSource()).getId());
+
         Geyma.setErfidleikastig(erfidleikastig);
     }
 
 
-    /**
+
+      /**
      * Birtir tilsvarandi leikborð eftir völdnu gamemode
-     *
      * @param actionEvent
      */
 
