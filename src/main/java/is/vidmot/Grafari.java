@@ -9,11 +9,13 @@ package is.vidmot;
  *
  *****************************************************************************/
 
+import javafx.beans.binding.Bindings;
+import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
 
-public class Grafari extends Rectangle {
+public class Grafari extends ImageView {
     // fastar
-    private static final double HRATT = 10;
+    private static final double HRATT = 15;
     private final double hradi = HRATT; // hve hratt fer grafarinn
     private int stefna; // í hvaða stefnu fer grafarinn
 
@@ -22,8 +24,21 @@ public class Grafari extends Rectangle {
      */
     public Grafari() {
         FXML_Lestur.lesa(this, "grafari-view.fxml");
-        setLayoutX(getWidth() / 2);
-        setStefna(Stefna.NIDUR.getGradur());
+        setLayoutX(getImage().getWidth() / 20);
+        setLayoutY(getImage().getHeight() / 20);
+        bindaVidClip();
+    }
+
+    // Bindur grafara við clip
+    private void bindaVidClip() {
+        double r = ((Rectangle) getClip()).getWidth();
+        double r2 = ((Rectangle) getClip()).getHeight();
+        ((Rectangle) getClip()).heightProperty().bind(
+                Bindings.createDoubleBinding(() -> this.yProperty().get() + r2,
+                        this.yProperty()));
+        ((Rectangle) getClip()).widthProperty().bind(
+                Bindings.createDoubleBinding(() -> this.xProperty().get() + r,
+                        this.xProperty()));
     }
 
 
@@ -33,8 +48,8 @@ public class Grafari extends Rectangle {
      */
     public void afram() {
         Leikbord parent = (Leikbord) this.getParent();
-        setX((int) (getX() < 0 || getX() > parent.getWidth() ? 0 : getX() + Math.cos(Math.toRadians(getStefna())) * hradi) % (parent.getWidth() - getWidth()));
-        setY((int) (getY() < getHeight() || getY() > parent.getHeight() ? getHeight() : getY() - Math.sin(Math.toRadians(getStefna())) * hradi) % (parent.getHeight() - getHeight()));
+        setX((int) (getX() < 0 || getX() > parent.getWidth() ? 0 : getX() + Math.cos(Math.toRadians(getStefna())) * hradi) % (parent.getWidth() - getImage().getWidth()));
+        setY((int) (getY() < getImage().getHeight() || getY() > parent.getHeight() ? getImage().getHeight() : getY() - Math.sin(Math.toRadians(getStefna())) * hradi) % (parent.getHeight() - getImage().getHeight()));
     }
 
     // get og set aðferðir
@@ -45,5 +60,9 @@ public class Grafari extends Rectangle {
 
     public void setStefna(int gradur) {
         this.stefna = gradur;
+    }
+
+    public boolean snertirGildru(Gildra r) {
+        return getBoundsInParent().intersects(r.getBoundsInParent());
     }
 }
