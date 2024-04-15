@@ -129,10 +129,10 @@ public class MenuController {
     public void birtaLeikbord(ActionEvent actionEvent) {
 
         if (leikmenn == 1) {
-            ViewSwitcher.switchTo(View.LEIKUREINN, true);
+            ViewSwitcher.switchTo(View.LEIKUREINN, false);
         }
         if (leikmenn == 2) {
-            ViewSwitcher.switchTo(View.LEIKURTVEIR, true);
+            ViewSwitcher.switchTo(View.LEIKURTVEIR, false);
         }
 
 
