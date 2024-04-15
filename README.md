@@ -14,10 +14,6 @@ git clone https://github.com/ThoraDis/GoldRush-2.git
 ```bash
 cd GoldRush-2
 ```
-
-3. Fara í Maven plugin og fara í clean og velja maven:clean
    
-4. Fara í Maven plugin og fara í install og velja install:install
-   
-5. Fara í Maven plugin og fara í javafx og velja javafx:run
+3. Fara í Maven plugin og fara í javafx og velja javafx:run
 
