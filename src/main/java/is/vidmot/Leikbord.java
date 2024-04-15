@@ -38,16 +38,15 @@ public class Leikbord extends Pane {
 
 
     private void framleidaGull() {
-        Gull g = new Gull((int) getWidth(),
-                (int) getHeight());
-        getChildren().add(g);
+        Gull g = new Gull();
         gullid.add(g);
+        g.setjaGull(this);
     }
 
     private void framleidaGildru() {
-        Gildra g = new Gildra((int) getWidth(), (int) getHeight());
-        getChildren().add(g);
-        gildran.add(g);
+        Gildra r = new Gildra();
+        gildran.add(r);
+        r.setjaGildru(this);
     }
 
 
@@ -107,7 +106,7 @@ public class Leikbord extends Pane {
     }
 
 
-    public void geraGull(){
+    public void geraGull() {
         framleidaGull();
     }
 
@@ -159,11 +158,10 @@ public class Leikbord extends Pane {
     }
 
     public void clearGull() {
-
-            for (Gull g : gullid) {
-                getChildren().remove(g);
-            }
-            gullid.clear();
+        for (Gull g : gullid) {
+            getChildren().remove(g);
+        }
+        gullid.clear();
 
         for (Gildra g : gildran) {
             getChildren().remove(g);

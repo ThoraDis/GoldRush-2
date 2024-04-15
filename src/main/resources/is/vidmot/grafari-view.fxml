@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--  custom component -->
 
 
-<fx:root width="25" height="15" type="javafx.scene.shape.Rectangle" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1">
-
+<!--  custom component -->
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.shape.Rectangle?>
+<fx:root fitHeight="20" fitWidth="20" type="javafx.scene.image.ImageView" xmlns="http://javafx.com/javafx/11.0.2"
+         xmlns:fx="http://javafx.com/fxml/1">
+    <Image preserveRatio="true" requestedHeight="20" requestedWidth="84.8" url="@myndir/player.png"/>
+    <clip>
+        <Rectangle height="20" width="20"/>
+    </clip>
 </fx:root>

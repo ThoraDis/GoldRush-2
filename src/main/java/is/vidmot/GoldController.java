@@ -55,9 +55,9 @@ public class GoldController {
      * við menucontroller. Setur upp bindingu við stigin og tímann sem er eftir.
      */
     public void initialize() {
-        leikur=new Leikur();
+        leikur = new Leikur();
         orvatakkar();
-        erfidleikastig= Geyma.getErfidleikastig();
+        erfidleikastig = Geyma.getErfidleikastig();
         leikur.setErfidleikastig(erfidleikastig);
         fxLeikbord.setLeikur(leikur);
         menuStyringController.setController(this);
@@ -166,27 +166,27 @@ public class GoldController {
     }
 
     public void setErfidleikastig(int eStig) {
-        erfidleikastig=eStig;
+        erfidleikastig = eStig;
         leikur.setErfidleikastig(eStig);
-
     }
 
-    public void leikLokid(){
+
+    public void leikLokid() {
         Alert a = new Alert(Alert.AlertType.CONFIRMATION);
         a.setTitle("Leikur búinn");
         a.setContentText("Viltu spila aftur eða fara til baka í main menu?");
 
         ButtonType spila = new ButtonType("Spila aftur");
         ButtonType til_baka = new ButtonType("Til baka");
-        a.getButtonTypes().setAll(spila,til_baka);
+        a.getButtonTypes().setAll(spila, til_baka);
 
         Optional<ButtonType> svar = a.showAndWait();
 
-        if (svar.isPresent() && ((Optional<?>) svar).get()==spila){
+        if (svar.isPresent() && ((Optional<?>) svar).get() == spila) {
             hefjaLeik();
             raesaKlukku();
-        } else if(svar.isPresent() && svar.get()==til_baka){
-            ViewSwitcher.switchTo(View.MAINMENU,true);
+        } else if (svar.isPresent() && svar.get() == til_baka) {
+            ViewSwitcher.switchTo(View.MAINMENU, true);
         }
 
 

@@ -6,6 +6,7 @@ package is.vidmot;
  *
  *  Application klasi fyrir Goldrush forritið
  *****************************************************************************/
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -21,8 +22,6 @@ public class GoldApplication extends Application {
 
         ViewSwitcher.setScene(scene);
         ViewSwitcher.switchTo(View.MAINMENU, true);
-
-
 
         stage.setTitle("Gold rush ");
         stage.setScene(scene);

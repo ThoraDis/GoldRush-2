@@ -13,6 +13,7 @@ package is.vidmot;
 import is.vinnsla.Geyma;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.RadioMenuItem;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ButtonType;
@@ -20,7 +21,9 @@ import javafx.scene.control.ButtonType;
 
 public class MenuController {
     // fastar
-    public static final String UMFORRIT = "Gullgrafari grefur gull og fær stig ";
+
+    public static final String UMFORRIT = "Örvatakkar til að hreyfa sig. Leikurinn snýst um að safna eins miklu gulli og hægt er áður en tíminn lýkur. Ekki stíga í gildrurnar því þá missir þú stig.";
+
     public static final String VILTU_HAETTA = "Viltu hætta?";
 
     private GoldController goldController = new GoldController();  // tenging í aðalcontroller
@@ -67,7 +70,7 @@ public class MenuController {
      */
     public void onHaetta(ActionEvent actionEvent) {
 
-            System.exit(0);
+        System.exit(0);
 
     }
 
@@ -98,6 +101,7 @@ public class MenuController {
     }
 
 
+
      /**
      * Stillir gamemode
      * @param actionEvent
@@ -115,10 +119,12 @@ public class MenuController {
      */
 
 
-    public void mainMenuErfidleikastig(ActionEvent actionEvent){
-        erfidleikastig=Integer.parseInt(((RadioButton) actionEvent.getSource()).getId());
+    public void mainMenuErfidleikastig(ActionEvent actionEvent) {
+        erfidleikastig = Integer.parseInt(((RadioButton) actionEvent.getSource()).getId());
+
         Geyma.setErfidleikastig(erfidleikastig);
     }
+
 
 
       /**
