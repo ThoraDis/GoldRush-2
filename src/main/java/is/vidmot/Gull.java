@@ -1,11 +1,3 @@
-package is.vidmot;
-/******************************************************************************
- *  Nafn    : Ebba Þóra Hvannberg
- *  T-póstur: ebba@hi.is
- *  Viðmótsforritun 2024
- *
- *  Viðmótsklasi fyrir gull
- *  Gull veit lítið
  *
  *****************************************************************************/
 
@@ -24,10 +16,10 @@ public class Gull extends Rectangle {
         FXML_Lestur.lesa(this, "gull-view.fxml");
     }
 
-    // smiður fyrir gull í random staðsetningu á fleti sem er breidd x haed
-    public Gull(int breidd, int haed) {
-        this(); // kallar á smiðinn sem er án parametra
-        setX(rand.nextInt((int) (breidd - getWidth())));
-        setY(rand.nextInt((int) (haed - getHeight())));
+    public void setjaGull(Leikbord b) {
+        b.getChildren().remove(this);
+        setX(rand.nextInt((int) (b.getWidth() - getWidth())));
+        setY(rand.nextInt((int) (b.getHeight() - getHeight())));
+        b.getChildren().add(this);
     }
 }
