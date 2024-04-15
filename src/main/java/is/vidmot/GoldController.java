@@ -8,18 +8,24 @@ package is.vidmot;
  *  stýrir örvatkökkum
  *****************************************************************************/
 
+import is.vinnsla.Geyma;
 import is.vinnsla.Klukka;
 import is.vinnsla.Leikur;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.util.Duration;
 
 import java.util.HashMap;
+import java.util.Optional;
+
 
 public class GoldController {
     // fasti
@@ -40,6 +46,7 @@ public class GoldController {
     Timeline leikjalykkjaTimalina;  // tímalína fyrir leikjalykkju
     private Timeline klukkuTimalina; // tímalína fyrir klukku
     Leikur leikur; // vinnslan
+    int erfidleikastig;
 
 
     /**
@@ -48,6 +55,9 @@ public class GoldController {
      */
     public void initialize() {
         leikur = new Leikur();
+        orvatakkar();
+        erfidleikastig = Geyma.getErfidleikastig();
+        leikur.setErfidleikastig(erfidleikastig);
         fxLeikbord.setLeikur(leikur);
         menuStyringController.setController(this);
         fxLeikbord.requestFocus();
@@ -58,6 +68,8 @@ public class GoldController {
                 fxLeikbord.playSE(7);
             }
         });
+        hefjaLeik();
+        raesaKlukku();
     }
 
     /**
@@ -123,12 +135,14 @@ public class GoldController {
         t.stop();           // stoppar klukkuna
         leikjalykkjaTimalina.stop(); // stoppar gullframleiðsluna
         fxLeikbord.playSE(6);
+        Platform.runLater(() -> leikLokid());
     }
 
     /**
      * Hefja leik með því að setja upp leikjalykkju fyrir meira gull
      */
     public void hefjaLeik() {
+        fxLeikbord.clearGull();
         leikur.setiGangi(true); // leikur í gangi
         fxLeikbord.nyrLeikur(); // nýr leikur hafinn
         leikjalykkjaTimalina = setjaUppLeikjalykkjuTimalinu();
@@ -151,6 +165,29 @@ public class GoldController {
     }
 
     public void setErfidleikastig(int eStig) {
+        erfidleikastig = eStig;
         leikur.setErfidleikastig(eStig);
+
+    }
+
+    public void leikLokid() {
+        Alert a = new Alert(Alert.AlertType.CONFIRMATION);
+        a.setTitle("Leikur búinn");
+        a.setContentText("Viltu spila aftur eða fara til baka í main menu?");
+
+        ButtonType spila = new ButtonType("Spila aftur");
+        ButtonType til_baka = new ButtonType("Til baka");
+        a.getButtonTypes().setAll(spila, til_baka);
+
+        Optional<ButtonType> svar = a.showAndWait();
+
+        if (svar.isPresent() && ((Optional<?>) svar).get() == spila) {
+            hefjaLeik();
+            raesaKlukku();
+        } else if (svar.isPresent() && svar.get() == til_baka) {
+            ViewSwitcher.switchTo(View.MAINMENU, true);
+        }
+
+
     }
 }
