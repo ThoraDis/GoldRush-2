@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.shape.Rectangle?>
-<fx:root style="-fx-fill:RED" width="10" height="10" type="javafx.scene.shape.Rectangle"
-         xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1">
-
+<fx:root fitHeight="15.0" fitWidth="15.0" type="javafx.scene.image.ImageView" xmlns="http://javafx.com/javafx/17.0.2-ea"
+         xmlns:fx="http://javafx.com/fxml/1">
+    <Image preserveRatio="true" requestedHeight="15" url="@myndir/dynamite.png"/>
+    <clip>
+        <Rectangle height="15" width="15"/>
+    </clip>
 </fx:root>
