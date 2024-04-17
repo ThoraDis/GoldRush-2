@@ -145,6 +145,8 @@ public class Leikbord extends Pane {
         getChildren().removeAll(gildran);
         gildran.removeAll();
         leikur.nyrLeikur();
+        fxGrafari.setX(10);
+        fxGrafari.setY(10);
     }
 
 
