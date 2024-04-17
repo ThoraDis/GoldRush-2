@@ -31,18 +31,6 @@ public class MenuController {
 
 
     /**
-     * Setur erfiðleikastig - létt, miðlungs erfitt
-     *
-     * @param actionEvent
-     */
-    public void onErfidleikastig(ActionEvent actionEvent) {
-        goldController.setErfidleikastig
-                (Integer.parseInt(((RadioMenuItem) actionEvent.getSource()).getId()));
-        goldControllerTveir.setErfidleikastig
-                (Integer.parseInt(((RadioMenuItem) actionEvent.getSource()).getId()));
-    }
-
-    /**
      * Hefur nýjan leik
      *
      * @param actionEvent
