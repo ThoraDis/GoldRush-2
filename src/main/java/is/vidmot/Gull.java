@@ -1,6 +1,4 @@
- *
- *****************************************************************************/
-
+package is.vidmot;
 import javafx.scene.shape.Rectangle;
 
 import java.util.Random;

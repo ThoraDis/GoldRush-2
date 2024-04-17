@@ -12,6 +12,7 @@ package is.vidmot;
  *****************************************************************************/
 
 import is.vinnsla.Leikur;
+import is.vidmot.Gull;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

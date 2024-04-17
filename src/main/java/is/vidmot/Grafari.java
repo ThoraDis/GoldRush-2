@@ -48,8 +48,26 @@ public class Grafari extends ImageView {
      */
     public void afram() {
         Leikbord parent = (Leikbord) this.getParent();
-        setX((int) (getX() < 0 || getX() > parent.getWidth() ? 0 : getX() + Math.cos(Math.toRadians(getStefna())) * hradi) % (parent.getWidth() - getImage().getWidth()));
-        setY((int) (getY() < getImage().getHeight() || getY() > parent.getHeight() ? getImage().getHeight() : getY() - Math.sin(Math.toRadians(getStefna())) * hradi) % (parent.getHeight() - getImage().getHeight()));
+        double newX = getX() + (Math.cos(Math.toRadians(getStefna()))) * hradi % (parent.getWidth() - getImage().getWidth());
+        double newY = getY() - Math.sin(Math.toRadians(getStefna())) * hradi % (parent.getHeight() - getImage().getHeight());
+
+        if (newX < 0) {
+            newX = (parent.getWidth()) - (getImage().getWidth());
+
+        } else if (newX > parent.getWidth()) {
+            newX=0+getImage().getWidth();
+        }
+
+        setX(newX);
+
+        if (newY < 0) {
+            newY = (parent.getHeight()) - (getImage().getHeight());
+
+        } else if (newY > parent.getHeight()) {
+            newY=0+getImage().getHeight();
+        }
+
+        setY(newY);
     }
 
     // get og set aðferðir

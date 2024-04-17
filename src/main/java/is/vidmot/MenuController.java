@@ -14,6 +14,8 @@ import is.vinnsla.Geyma;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 
+import javafx.scene.control.RadioButton;
+
 
 public class MenuController {
     // fastar
@@ -86,6 +88,7 @@ public class MenuController {
      */
     public void onUmForritid(ActionEvent actionEvent) {
         ButtonType buttonType = new ButtonType("Ég skil", ButtonBar.ButtonData.OK_DONE);
+
         Alert alert = new Alert(Alert.AlertType.INFORMATION, UMFORRIT, buttonType);
         alert.showAndWait();
     }
