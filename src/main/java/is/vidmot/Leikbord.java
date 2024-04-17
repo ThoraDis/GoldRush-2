@@ -12,6 +12,7 @@ package is.vidmot;
  *****************************************************************************/
 
 import is.vinnsla.Leikur;
+import is.vidmot.Gull;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -145,6 +146,8 @@ public class Leikbord extends Pane {
         getChildren().removeAll(gildran);
         gildran.removeAll();
         leikur.nyrLeikur();
+        fxGrafari.setX(10);
+        fxGrafari.setY(10);
     }
 
 
