@@ -23,7 +23,6 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.util.Duration;
 
-
 import java.util.HashMap;
 import java.util.Optional;
 
@@ -40,6 +39,25 @@ public class GoldController {
     public Label fxStig;        // stigin
     @FXML
     private MenuController menuStyringController; // stýring fyrir menu
+
+    // boolean fylki sem er notað í föllum til að koma í veg fyrir að klukkutikkið fari af stað þegar farið er til baka úr leik
+    public boolean isOn;
+
+    public void setOn(boolean on) {
+        isOn = on;
+    }
+
+    public boolean getOn() {
+        return isOn;
+    }
+
+    public void stoppaLagid() {
+        fxLeikbord.stopMusic();
+    }
+
+    public void stoppaTimalinu() {
+        klukkuTimalina.stop();
+    }
 
     // vinnsluhlutir
     public Klukka klukka = new Klukka(30);
@@ -64,13 +82,14 @@ public class GoldController {
         fxLeikbord.requestFocus();
         fxStig.textProperty().bind(leikur.stiginProperty().asString()); // binda stigin við viðmótið
         fxTimiEftir.textProperty().bind(klukka.timiProperty().asString());
+        hefjaLeik();
+        raesaKlukku();
         fxTimiEftir.textProperty().addListener((ov, t, t1) -> {
-            if (fxTimiEftir.getText().equals("10")) {
+            if (fxTimiEftir.getText().equals("10") && isOn) {
+                System.out.println(leikur.isIGangi());
                 fxLeikbord.playSE(7);
             }
         });
-        hefjaLeik();
-        raesaKlukku();
     }
 
     /**
@@ -149,6 +168,7 @@ public class GoldController {
         leikjalykkjaTimalina = setjaUppLeikjalykkjuTimalinu();
         leikjalykkjaTimalina.play();
         fxLeikbord.playSE(5);
+        setOn(true);
     }
 
     /**
@@ -168,8 +188,8 @@ public class GoldController {
     public void setErfidleikastig(int eStig) {
         erfidleikastig = eStig;
         leikur.setErfidleikastig(eStig);
-    }
 
+    }
 
     public void leikLokid() {
         Alert a = new Alert(Alert.AlertType.CONFIRMATION);
