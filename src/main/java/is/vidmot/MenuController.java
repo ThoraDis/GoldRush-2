@@ -12,11 +12,7 @@ package is.vidmot;
 
 import is.vinnsla.Geyma;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.RadioMenuItem;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.ButtonType;
+import javafx.scene.control.*;
 
 
 public class MenuController {
@@ -24,11 +20,11 @@ public class MenuController {
 
     public static final String UMFORRIT = "Örvatakkar til að hreyfa sig. Leikurinn snýst um að safna eins miklu gulli og hægt er áður en tíminn lýkur. Ekki stíga í gildrurnar því þá missir þú stig.";
 
-    public static final String VILTU_HAETTA = "Viltu hætta?";
-
     private GoldController goldController = new GoldController();  // tenging í aðalcontroller
 
     private GoldControllerTveir goldControllerTveir = new GoldControllerTveir();
+
+    private final Leikbord leikbord = new Leikbord();
 
     public int leikmenn = 1;
 
@@ -75,7 +71,11 @@ public class MenuController {
     }
 
     public void onTilBaka(ActionEvent actionEvent) {
+
         ViewSwitcher.switchTo(View.MAINMENU, true);
+        goldController.setOn(false);
+        goldController.stoppaLagid();
+        goldController.stoppaTimalinu();
     }
 
 
@@ -85,7 +85,8 @@ public class MenuController {
      * @param actionEvent
      */
     public void onUmForritid(ActionEvent actionEvent) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION, UMFORRIT);
+        ButtonType buttonType = new ButtonType("Ég skil", ButtonBar.ButtonData.OK_DONE);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, UMFORRIT, buttonType);
         alert.showAndWait();
     }
 
@@ -101,9 +102,9 @@ public class MenuController {
     }
 
 
-
-     /**
+    /**
      * Stillir gamemode
+     *
      * @param actionEvent
      */
 
@@ -115,6 +116,7 @@ public class MenuController {
 
     /**
      * Stillir erfiðleikastig fyrir leik
+     *
      * @param actionEvent
      */
 
@@ -126,9 +128,9 @@ public class MenuController {
     }
 
 
-
-      /**
+    /**
      * Birtir tilsvarandi leikborð eftir völdnu gamemode
+     *
      * @param actionEvent
      */
 
