@@ -1,8 +1,8 @@
 package is.vinnsla;
 
 /******************************************************************************
- *  Nafn    : Ebba Þóra Hvannberg
- *  T-póstur: ebba@hi.is
+ *  Nafn    : Arnaldur Ólafsson, Þóra Dís Garðarsdóttir
+ *  T-póstur: aro42@hi.is, tdg5@hi.is
  *
  *  Lýsing: Vinnsluklasi fyrir klukku. Geymir tímann, lætur tímann líða
  *
