@@ -1,14 +1,14 @@
 package is.vidmot;
 /******************************************************************************
- *  Nafn    : Ebba Þóra Hvannberg
- *  T-póstur: ebba@hi.is
- *  Viðmótsforritun 2024
+ *  Nafn    : Arnaldur Ólafsson, Þóra Dís Garðarsdóttir
+ *  T-póstur: aro42@hi.is, tdg5@hi.is
  *
- *  Viðmótsklasi fyrir Leikborð. Hefur grafara og gull. Er tengdur við leikinn.
- *  Er Framhlið (Facade) fyrir vinnsluna, grafarann og gullið.
+ *  Viðmótsklasi fyrir Leikborð. Hefur grafara, gull og gildru. Er tengdur við leikinn.
+ *  Er Framhlið fyrir vinnsluna, grafarann, gullið og gildrunar.
  *
- *  Framleiðir gull, færir grafara áfram, athuga hvort grafari grefur gull, ákveður
- *  hvort á að framleiða meira gull. Flest virkni er áframsend annað
+ *  Framleiðir gull, færir grafara áfram, athuga hvort grafari grefur gull eða gildru, ákveður
+ *  hvort á að framleiða meira gull eða gildru, spilar hljóð þegar grafið er gildru og gull
+ *  Flest virkni er áframsend annað
  *****************************************************************************/
 
 import is.vinnsla.Leikur;
@@ -37,6 +37,9 @@ public class Leikbord extends Pane {
         FXML_Lestur.lesa(this, "leikbord-view.fxml");
     }
 
+    /**
+     * Framleiðir gull
+     */
 
     private void framleidaGull() {
         Gull g = new Gull();
@@ -44,6 +47,9 @@ public class Leikbord extends Pane {
         g.setjaGull(this);
     }
 
+    /**
+     * Framleiðir gildrur
+     */
     private void framleidaGildru() {
         Gildra r = new Gildra();
         gildran.add(r);
@@ -160,6 +166,9 @@ public class Leikbord extends Pane {
         fxGrafari.setStefna(gradur);
     }
 
+    /**
+     * Hreinsa allt gull og allrar gildrur
+     */
     public void clearGull() {
         for (Gull g : gullid) {
             getChildren().remove(g);

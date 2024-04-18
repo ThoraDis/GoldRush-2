@@ -7,8 +7,8 @@ import javafx.beans.property.SimpleIntegerProperty;
 import java.util.Random;
 
 /******************************************************************************
- *  Nafn    : Ebba Þóra Hvannberg
- *  T-póstur: ebba@hi.is
+ *  Nafn    : Arnaldur Ólafsson, Þóra Dís Garðarsdóttir
+ *  T-póstur: aro42@hi.is, tdg5@hi.is
  *
  *  Lýsing  : Vinnsluhlutur fyrir leik. Heldur aðallega utan um stigin
  *

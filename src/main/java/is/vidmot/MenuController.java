@@ -1,12 +1,12 @@
 package is.vidmot;
 /******************************************************************************
- *  Nafn    : Ebba Þóra Hvannberg
- *  T-póstur: ebba@hi.is
+ *  Nafn    : Arnaldur Ólafsson, Þóra Dís Garðarsdóttir
+ *  T-póstur: aro42@hi.is, tdg5@hi.is
  *
- *  Viðmótsforritun 2024
- *  Stýring fyrir valmynd
+ *  Lýsing  : Stýring fyrir valmynd
  *
- *  Getur hafið nýjan leik, sett erfiðleikastig og spurt um forritið
+ *  Getur hafið nýjan leik, sett erfiðleikastig, spurt um forritið, til baka
+ *  í main menu og velja gamemode
  *
  *****************************************************************************/
 
@@ -60,6 +60,10 @@ public class MenuController {
 
     }
 
+    /**
+     * Til baka í main menu
+     * @param actionEvent
+     */
     public void onTilBaka(ActionEvent actionEvent) {
 
         ViewSwitcher.switchTo(View.MAINMENU, true);

@@ -1,10 +1,9 @@
 package is.vidmot;
 /******************************************************************************
- *  Nafn    : Ebba Þóra Hvannberg
- *  T-póstur: ebba@hi.is
- *  Viðmótsforritun 2024
+ *  Nafn    : Arnaldur Ólafsson, Þóra Dís Garðarsdóttir
+ *  T-póstur: aro42@hi.is, tdg5@hi.is
  *
- *  Application klasi fyrir Goldrush forritið
+ *  Lýsing  : Application klasi fyrir Goldrush forritið
  *****************************************************************************/
 
 import javafx.application.Application;

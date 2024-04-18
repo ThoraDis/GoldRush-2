@@ -5,6 +5,13 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import java.net.URL;
 
+/******************************************************************************
+ *  Nafn    : Arnaldur Ólafsson, Þóra Dís Garðarsdóttir
+ *  T-póstur: aro42@hi.is, tdg5@hi.is
+ *
+ *  Lýsing  : Hljóð fyrir leikinn
+ *****************************************************************************/
+
 
 public class Sound {
     Clip clip;
@@ -32,13 +39,24 @@ public class Sound {
         }
     }
 
+    /**
+     * Spilar hljóð
+     */
     public void play() {
         clip.start();
     }
 
+    /**
+     * Loopar hljóð
+     */
+
     public void loop() {
         clip.loop(Clip.LOOP_CONTINUOUSLY);
     }
+
+    /**
+     * Stoppar hljóð
+     */
 
     public void stop() {
         clip.stop();

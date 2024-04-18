@@ -1,6 +1,13 @@
 package is.vidmot;
 import javafx.scene.shape.Rectangle;
 
+/******************************************************************************
+ *  Nafn    : Arnaldur Ólafsson, Þóra Dís Garðarsdóttir
+ *  T-póstur: aro42@hi.is, tdg5@hi.is
+ *
+ *  Lýsing  : Viðmótsklasi fyrir gull.
+ *****************************************************************************/
+
 import java.util.Random;
 
 public class Gull extends Rectangle {

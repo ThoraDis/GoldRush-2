@@ -4,6 +4,13 @@ import javafx.beans.binding.Bindings;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
 
+/******************************************************************************
+ *  Nafn    : Arnaldur Ólafsson, Þóra Dís Garðarsdóttir
+ *  T-póstur: aro42@hi.is, tdg5@hi.is
+ *
+ *  Lýsing  : Viðmótsklasi fyrir gildru
+ *****************************************************************************/
+
 import java.util.Random;
 
 public class Gildra extends ImageView {
@@ -27,6 +34,11 @@ public class Gildra extends ImageView {
                 Bindings.createDoubleBinding(() -> this.xProperty().get() + r,
                         this.xProperty()));
     }
+
+    /**
+     * Setja gildru
+     * @param b leikborðið
+     */
 
     public void setjaGildru(Leikbord b) {
         b.getChildren().remove(this);

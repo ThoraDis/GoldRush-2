@@ -1,8 +1,11 @@
 package is.vinnsla;
 
-/**
- * Vinnslu klassi til að geyma og sækja erfiðleikastig og gamemode
- */
+/********************************************************************
+ *  Nafn    : Arnaldur Ólafsson, Þóra Dís Garðarsdóttir
+ *  T-póstur: aro42@hi.is, tdg5@hi.is
+ *
+ * Lýsing  :  Vinnslu klassi til að geyma og sækja erfiðleikastig og gamemode
+ ********************************************************************/
 
 public class Geyma {
 

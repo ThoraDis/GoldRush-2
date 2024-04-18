@@ -1,11 +1,10 @@
 package is.vidmot;
 /******************************************************************************
- *  Nafn    : Ebba Þóra Hvannberg
- *  T-póstur: ebba@hi.is
- *  Viðmótsforritun 2024
+ *  Nafn    : Arnaldur Ólafsson, Þóra Dís Garðarsdóttir
+ *  T-póstur: aro42@hi.is, tdg5@hi.is
  *
- *  Controller fyrir leikinn
- *  stýrir örvatkökkum
+ *  Lýsing  : Controller fyrir leikinn
+ *  stýrir örvatkökkum, spilar hljóð við byrjun leiks og loks.
  *****************************************************************************/
 
 import is.vinnsla.Geyma;
@@ -185,11 +184,9 @@ public class GoldController {
         return t;
     }
 
-    public void setErfidleikastig(int eStig) {
-        erfidleikastig = eStig;
-        leikur.setErfidleikastig(eStig);
-
-    }
+    /**
+     * Dialog þegar leik lýkur
+     */
 
     public void leikLokid() {
         Alert a = new Alert(Alert.AlertType.CONFIRMATION);

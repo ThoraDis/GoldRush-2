@@ -1,10 +1,10 @@
 package is.vidmot;
 
 /******************************************************************************
- *  Nafn    : Ebba Þóra Hvannberg
- *  T-póstur: ebba@hi.is
+ *  Nafn    : Arnaldur Ólafsson, Þóra Dís Garðarsdóttir
+ *  T-póstur: aro42@hi.is, tdg5@hi.is
  *
- *  Lýsing  :  enum fyrir Stefnu boltans
+ *  Lýsing  :  enum fyrir Stefnu grafara
  *****************************************************************************/
 public enum Stefna {
     VINSTRI(180),

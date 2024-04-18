@@ -1,10 +1,9 @@
 package is.vidmot;
 /******************************************************************************
- *  Nafn    : Ebba Þóra Hvannberg
- *  T-póstur: ebba@hi.is
- *  Viðmótsforritun 2024
+ *  Nafn    : Arnaldur Ólafsson, Þóra Dís Garðarsdóttir
+ *  T-póstur: aro42@hi.is, tdg5@hi.is
  *
- *  Viðmótsklasi fyrir gullgrafara. Er Rectangle
+ *  Lýsing  :  Viðmótsklasi fyrir gullgrafara. Er Rectangle
  *  Grafari hefur stefnu og veit hvað hann fer hratt
  *
  *****************************************************************************/
@@ -43,8 +42,7 @@ public class Grafari extends ImageView {
 
 
     /**
-     * Boltinn færist áfram. Ef komið er að vinstri jaðrinum kemstu ekki lengra. Ef komið er að hægri jaðrinum
-     * ferðu hringinn að vinstri jaðrinum. Sama með efri og neðri jaðarinn
+     * Grafarinn færist og passar að grafarinn fer ekki af leikborðinu
      */
     public void afram() {
         Leikbord parent = (Leikbord) this.getParent();
@@ -80,7 +78,4 @@ public class Grafari extends ImageView {
         this.stefna = gradur;
     }
 
-    public boolean snertirGildru(Gildra r) {
-        return getBoundsInParent().intersects(r.getBoundsInParent());
-    }
 }
